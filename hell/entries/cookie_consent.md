@@ -18,6 +18,7 @@ badcode: '<body>
 </body>'
 goodcode: '<body>
   <div class="cookie_consent modal">
+      <h2 class="sr-only">Cookie notice</h2>
       <p>We use cookies…</p>
       <button class="cookie_consent__ok">OK</button>
       <button class="cookie_consent__close">
@@ -61,12 +62,12 @@ margin: -1px;
 ## Issues and how to fix them
 
 1. The modal is not the first item on the page and focus is not on the modal when the page loads. Keyboard users have to tab through all items on the page to access the cookie consent window.
-1. A `div` isn't keyboard focusable.
-1. Content inside these `div`s is semantically just text. Assistive technology doesn't know that these fake buttons are actually buttons.
+1. A `div` isn’t keyboard focusable.
+1. Content inside these `div`s is semantically just text. Assistive technology doesn’t know that these fake buttons are actually buttons.
 1. {{ snippets.div_click }} {{ snippets.button_click }}
-1. There's no text alternative for the icon.
-1. [Font Awesome advises to hide icons semantically](https://fontawesome.com/v4.7.0/accessibility/) by settings `aria-hidden="true"` on the `<i>` element.
-1. Font Awesome adds unicode content via the `::before` pseudo element. Assistive technology may announce the unicode equivalent, which in this specific example would be “times” since [fa-times](https://fontawesome.com/icons/times) is not a cross but a multiplication sign. (Please note: Talkback and VoiceOver didn't annouce anything in this example.)
+1. There’s no text alternative for the icon.
+1. {{ snippets.fa_icons }}
+1. {{ snippets.fa_times }}
 1. Bonus: it should be possible to close modals by pressing <kbd>Esc</kbd>.
 </div>
 
@@ -83,4 +84,11 @@ margin: -1px;
 ```css
 {{ goodcodeCSS | prettyCSS }}
 ```
+</div>
+
+<div class="section">
+
+  <h2 id="resources">Resources</h2>
+
+  1. [Screen readers and cookie consents](https://www.youtube.com/watch?v=Uaqo4FOI_DY)
 </div>
