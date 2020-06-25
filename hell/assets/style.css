@@ -1,3 +1,49 @@
+/* Colours */
+:root {
+  /* Light mode */
+  --background: #fff;
+  --text: #000;
+  --code-background: #000;
+  --code-text: #fff;
+  --kbd-background: #545454;
+  --kbd-text: #fff;
+  --logo-text: #000;
+  --logo-polygon-hover: #000;
+  --nav-link-text: #000;
+  --nav-twitter: #000;
+  --link-visited: #a83636;
+  --link-focus: #a83636;
+  --pentagram-image: url("/assets/pentagramm.svg");
+  --pagination-link-border: #000;
+  --pagination-link-current: #000;
+  --pagination-link-hover-background: #000;
+  --pagination-link-hover: #fff;
+  --pagination-link-visited: #d72b2b;
+}
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+    --background: #000000;
+    --text: #dedede;
+    --code-background: #dedede;
+    --code-text: #000000;
+    --kbd-background: #545454;
+    --kbd-text: #fff;
+    --logo-text: #fff;
+    --logo-polygon-hover: #fff;
+    --nav-link-text: #fff;
+    --nav-twitter: #dedede;
+    --link-visited: #dc6565;
+    --link-focus: #dc6565;
+    --pentagram-image: url("/assets/pentagramm-light.svg");
+    --pagination-link-border: #dedede;
+    --pagination-link-current: #dedede;
+    --pagination-link-hover-background: #fff;
+    --pagination-link-hover: #000;
+    --pagination-link-visited: #dc6565;
+  }
+}
+
 /* Base */
 
  * {
@@ -14,7 +60,8 @@ body {
   line-height: 1.6;
   max-width: 104rem;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 @media (min-width: 768px) {
@@ -65,7 +112,7 @@ a:link {
 }
 
 a:visited {
-  color: #a83636;
+  color: var(--link-visited);
 }
 
 a:hover {
@@ -77,13 +124,13 @@ a:hover {
 }
 
 .js-focus-visible .focus-visible {
-  outline: 5px solid #a83636;
+  outline: 5px solid var(--link-focus);
 }
 
 kbd,
 code {
-	background:#000;
-	color:#fff;
+	background:var(--code-background);
+	color:var(--code-text);
 	padding: 0.2rem 0.3rem 0.3rem;
 	border-radius: 0.2rem;
 	display: inline-block;
@@ -93,8 +140,8 @@ code {
 }
 
 kbd {
-	background:#545454;
-	color:#fff;
+	background:var(--kbd-background);
+	color:var(--kbd-text);
 }
 
 blockquote {
@@ -195,7 +242,7 @@ blockquote {
 
 .nav__link.focus-visible,
 .nav__link:hover {
-  color: #000000;
+  color: var(--nav-link-text);
 }
 
 @media (min-width: 410px) {
@@ -230,7 +277,7 @@ blockquote {
 
 .site-twitter:link,
 .site-twitter:visited {
-  color: #000;
+  color: var(--nav-twitter);
 }
 
 .site-twitter:focus,
@@ -265,7 +312,7 @@ blockquote {
 
 .site--loaded .site-logo__666 {
   opacity: 1;
-  fill: #000;
+  fill: var(--logo-text);
 }
 
 .site--loaded .site-logo__1 {
@@ -293,8 +340,12 @@ blockquote {
   fill: #d72b2b;
 }
 
+.site-logo__circle {
+  fill: var(--logo-text);
+}
+
 .site-logo:hover polygon {
-  fill: #000000;
+  fill: var(--logo-polygon-hover);
 }
 
 @media (min-width: 768px) {
@@ -325,7 +376,7 @@ blockquote {
 
 
 .preview:not(:last-child) {
-  background: url('/assets/pentagramm.svg') center bottom no-repeat;
+  background: var(--pentagram-image) center bottom no-repeat;
   background-size: auto;
   background-size: 40px;
   margin-bottom: 3.6rem;
@@ -399,7 +450,7 @@ blockquote {
 .pagination__link {
   min-width: 5rem;
   height: 5rem;
-  border: 3px solid #000;
+  border: 3px solid var(--pagination-link-border);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -409,18 +460,18 @@ blockquote {
 
 .pagination__link:link,
 .pagination__link:visited {
-  color: #d72b2b;
+  color: var(--pagination-link-visited);
   text-decoration: none;
 }
 
 .pagination__link[aria-current="page"] {
   font-weight: bold;
-  color: #000000;
+  color: var(--pagination-link-current);
 }
 
 .pagination__link:hover {
-  background: #000000;
-  color: #FFFFFF;
+  background: var(--pagination-link-hover-background);
+  color: var(--pagination-link-hover);
 }
 
 
@@ -474,72 +525,6 @@ blockquote {
   margin-top: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000000;
-    color: #dedede;
-  }
-
-  kbd,
-  code {
-    background:#dedede;
-    color:#000000;
-  }
-
-  kbd {
-    background:#545454;
-    color:#fff;
-  }
-
-  .site--loaded .site-logo__666 {
-    fill: #ffffff;
-  }
-
-  .site-logo:hover polygon {
-    fill: #ffffff;
-  }
-
-  .site-logo__circle {
-    fill: #ffffff;
-  }
-
-  .nav__link.focus-visible,
-  .nav__link:hover {
-    color: #FFFFFF;
-  }
-
-  .site-twitter:not(:hover):link,
-  .site-twitter:not(:hover):visited {
-    color: #dedede;
-  }
-
-  .preview:not(:last-child) {
-    background-image: url('/assets/pentagramm-light.svg');
-  }
-
-  .pagination__link {
-    border-color: #dedede;
-  }
-
-  .pagination__link:link,
-  .pagination__link:visited {
-    color: #dc6565;
-  }
-
-  .pagination__link[aria-current="page"] {
-    color: #dedede;
-  }
-
-  .pagination__link:hover {
-    background: #FFFFFF;
-    color: #000000;
-  }
-
-  a:visited {
-    color: #dc6565;
-  }
-}
-
 /* Video */
 
 .video {
@@ -576,17 +561,11 @@ blockquote {
 .page-nav__link {
   display: block;
   font-weight: bold;
-  background: url('/assets/pentagramm.svg') top 8px left no-repeat;
+  background: var(--pentagram-image) top 8px left no-repeat;
   background-size: auto;
   background-size: 40px;
   padding-top: 7px;
   min-height: 50px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .page-nav__link {
-    background-image: url('/assets/pentagramm-light.svg');
-  }
 }
 
 .page-nav__link:hover {
