@@ -1,6 +1,7 @@
 /* Colours */
 :root {
   /* Light mode */
+  --color-mode: 'light';
   --background: #fff;
   --text: #000;
   --code-background: #000;
@@ -20,9 +21,12 @@
   --pagination-link-hover: #fff;
   --pagination-link-visited: #d72b2b;
 }
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
+  
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  
+  :root:not([data-user-color-scheme]) {
+    --color-mode: 'dark';
     --background: #000000;
     --text: #dedede;
     --code-background: #dedede;
@@ -42,6 +46,27 @@
     --pagination-link-hover: #000;
     --pagination-link-visited: #dc6565;
   }
+}
+
+[data-user-color-scheme='dark'] {
+    --background: #000000;
+    --text: #dedede;
+    --code-background: #dedede;
+    --code-text: #000000;
+    --kbd-background: #545454;
+    --kbd-text: #fff;
+    --logo-text: #fff;
+    --logo-polygon-hover: #fff;
+    --nav-link-text: #fff;
+    --nav-twitter: #dedede;
+    --link-visited: #dc6565;
+    --link-focus: #dc6565;
+    --pentagram-image: url("/assets/pentagramm-light.svg");
+    --pagination-link-border: #dedede;
+    --pagination-link-current: #dedede;
+    --pagination-link-hover-background: #fff;
+    --pagination-link-hover: #000;
+    --pagination-link-visited: #dc6565;
 }
 
 /* Base */
@@ -698,3 +723,44 @@ blockquote {
   margin: 0 auto;
 }
 
+/* Theme toggle styles */
+
+.visually-hidden {
+  display: block;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
+  white-space: nowrap;
+  position: absolute;
+}
+
+.no-js .user-toggle {
+  display: none;
+}
+
+.user-toggle {
+  margin: 2rem auto 0 auto;
+  padding-top: 2.5rem;
+  max-width: 20rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.toggle-button {
+  display: inline-flex;
+  background: var(--button-background);
+  color: var(--button-color);
+  border: none;
+  font: inherit;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  transition: background 500ms ease-in-out, color 200ms ease;
+}
+
+.toggle-button:focus {
+  outline: 1px solid var(--button-background);
+  outline-offset: 0.5rem;
+}
