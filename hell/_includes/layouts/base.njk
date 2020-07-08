@@ -42,6 +42,7 @@
 
     {% if hell.env == 'development' %}
       <link rel="stylesheet" href="/assets/prism.css" />
+      <link rel="stylesheet" href="/assets/theme.css" />
       <link rel="stylesheet" href="/assets/style.css" />
     {% else %}
       <link rel="stylesheet" href="/assets/min/style.min.css" />
@@ -61,12 +62,7 @@
   <div class="wrapper">
     <header class="site-header">
       <a href="#content" class="skip-link">Skip to content</a>
-      <div class="user-toggle">
-        <div role="status" class="visually-hidden js-mode-status"></div>
-        <button class="toggle-button js-mode-toggle">
-          <span class="toggle-button__text js-mode-toggle-text">Enable dark mode</span>
-        </button>
-      </div>
+      {% include "theme-toggle.njk" %}
       <nav class="nav" aria-label="Main">
         <ol class="nav__items">
           <li class="nav__item"><a href="/contribution" class="nav__link">Contribution</a></li>
@@ -94,6 +90,7 @@
 
   {% if hell.env == 'development' %}
     <script src="/assets/focus-visible.js"></script>
+    <script src="/assets/theme.js"></script>
     <script src="/assets/script.js"></script>
   {% else %}
     <script src="/assets/min/script.min.js"></script>

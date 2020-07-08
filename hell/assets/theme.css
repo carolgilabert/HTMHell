@@ -1,0 +1,105 @@
+/* Colours */
+:root {
+    /* Light mode */
+    --color-mode: 'light';
+    --background: #fff;
+    --text: #000;
+    --code-background: #000;
+    --code-text: #fff;
+    --kbd-background: #545454;
+    --kbd-text: #fff;
+    --logo-text: #000;
+    --logo-polygon-hover: #000;
+    --nav-link-text: #000;
+    --nav-twitter: #000;
+    --link-visited: #a83636;
+    --link-focus: #a83636;
+    --pentagram-image: url("/assets/pentagramm.svg");
+    --pagination-link-border: #000;
+    --pagination-link-current: #000;
+    --pagination-link-hover-background: #000;
+    --pagination-link-hover: #fff;
+    --pagination-link-visited: #d72b2b;
+  }
+    
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    
+    :root:not([data-user-color-scheme]) {
+      --color-mode: 'dark';
+      --background: #000000;
+      --text: #dedede;
+      --code-background: #dedede;
+      --code-text: #000000;
+      --kbd-background: #545454;
+      --kbd-text: #fff;
+      --logo-text: #fff;
+      --logo-polygon-hover: #fff;
+      --nav-link-text: #fff;
+      --nav-twitter: #dedede;
+      --link-visited: #dc6565;
+      --link-focus: #dc6565;
+      --pentagram-image: url("/assets/pentagramm-light.svg");
+      --pagination-link-border: #dedede;
+      --pagination-link-current: #dedede;
+      --pagination-link-hover-background: #fff;
+      --pagination-link-hover: #000;
+      --pagination-link-visited: #dc6565;
+    }
+  }
+  
+  [data-user-color-scheme='dark'] {
+      --background: #000000;
+      --text: #dedede;
+      --code-background: #dedede;
+      --code-text: #000000;
+      --kbd-background: #545454;
+      --kbd-text: #fff;
+      --logo-text: #fff;
+      --logo-polygon-hover: #fff;
+      --nav-link-text: #fff;
+      --nav-twitter: #dedede;
+      --link-visited: #dc6565;
+      --link-focus: #dc6565;
+      --pentagram-image: url("/assets/pentagramm-light.svg");
+      --pagination-link-border: #dedede;
+      --pagination-link-current: #dedede;
+      --pagination-link-hover-background: #fff;
+      --pagination-link-hover: #000;
+      --pagination-link-visited: #dc6565;
+  }
+  
+/* Theme toggle styles */
+
+.visually-hidden {
+    display: block;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(1px);
+    white-space: nowrap;
+    position: absolute;
+  }
+  
+  .no-js .theme-toggle {
+    display: none;
+  }
+  
+  .theme-toggle {
+    /* might wanna position it later */
+  }
+  
+  .toggle-button {
+    cursor: pointer;
+    background: var(--pentagram-image) no-repeat;
+    border: none;
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .toggle-button:hover svg {
+    /* Need to find a way to colour the penta red */
+  }  
+
