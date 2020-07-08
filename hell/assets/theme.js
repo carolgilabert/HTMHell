@@ -1,38 +1,34 @@
 document.documentElement.classList.remove('no-js');
 
-const STORAGE_KEY = 'user-color-scheme';
-const COLOR_MODE_KEY = '--color-mode';
+var STORAGE_KEY = 'user-color-scheme';
+var COLOR_MODE_KEY = '--color-mode';
 
-const modeToggleButton = document.querySelector('.js-mode-toggle');
-const modeStatusElement = document.querySelector('.js-mode-status');
+var modeToggleButton = document.querySelector('.js-mode-toggle');
+var modeStatusElement = document.querySelector('.js-mode-status');
 
-const getCSSCustomProp = propKey => {
-  let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
+function getCSSCustomProp(propKey) {
+  var response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
 
   if (response.length) {
     response = response.replace(/\"/g, '').trim();
   }
 
   return response;
-}; 
+}
 
-const applySetting = passedSetting => {
-  let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY);
+function applySetting(passedSetting) {
+  var currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY);
 
   if (currentSetting) {
     document.documentElement.setAttribute('data-user-color-scheme', currentSetting);
-    setStatus(currentSetting);
+    modeStatusElement.innerText = 'Color mode is now "' + currentSetting + '"';
   } else {
-    setStatus(getCSSCustomProp(COLOR_MODE_KEY));
+    modeStatusElement.innerText = 'Color mode is now "' + getCSSCustomProp(COLOR_MODE_KEY) + '"';
   }
-};
+}
 
-const setStatus = currentSetting => {
-  modeStatusElement.innerText = `Color mode is now "${currentSetting}"`;
-};
-
-const toggleSetting = () => {
-  let currentSetting = localStorage.getItem(STORAGE_KEY);
+function toggleSetting() {
+  var currentSetting = localStorage.getItem(STORAGE_KEY);
 
   switch (currentSetting) {
     case null:
@@ -49,9 +45,9 @@ const toggleSetting = () => {
   localStorage.setItem(STORAGE_KEY, currentSetting);
 
   return currentSetting;
-};
+}
 
-modeToggleButton.addEventListener('click', evt => {
+modeToggleButton.addEventListener('click', function(evt) {
   evt.preventDefault();
 
   applySetting(toggleSetting());
